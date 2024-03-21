@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormSignIn from "../components/FormSignIn/FormSignIn.vue"
+import FormSignIn from "../components/Form/FormSignIn/FormSignIn.vue"
 
 </script>
 

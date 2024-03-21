@@ -11,12 +11,14 @@ import {  faPlay} from '@fortawesome/free-solid-svg-icons';
 
 import Home from './views/Home.vue';
 import SignIn from './views/SignIn.vue';
+import SignUp from './views/SignUp.vue';
 
 library.add(faPlay);
 
 const routes = [
     {path:'/', component: Home},
-    {path:'/signin', component: SignIn}
+    {path:'/signin', component: SignIn},
+    {path:'/signup', component: SignUp}
 ]
 
 const router = createRouter({

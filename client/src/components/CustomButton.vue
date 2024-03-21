@@ -9,7 +9,7 @@ defineProps({
 </script>
 
 <template>
-<button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg" :class="color">{{ name }}</button>
+<button class="btn btn-xs sm:btn-sm md:btn-md " :class="color">{{ name }}</button>
 
 
 
