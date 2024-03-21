@@ -19,7 +19,8 @@ export const useFetch = (url: string, options?: RequestInit) => {
       .finally(() => (isFetching.value = false));
   }, 2000);
 
-  return { isFetching, data, status, error };
+
+  return { isFetching, data, status, error }; 
 };
 
 export default useFetch;

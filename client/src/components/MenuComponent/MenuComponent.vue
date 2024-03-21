@@ -1,5 +1,5 @@
 <template>
-  <ul class="menu bg-base-200  rounded-box text-lg">
+  <ul class="menu bg-base-100  rounded-box text-lg">
     <li>
       <a class="btn btn-ghost font-bold text-white justify-start"
         ><img

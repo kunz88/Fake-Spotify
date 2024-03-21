@@ -2,23 +2,20 @@
 
 defineProps({
   title: String,
-  text: String,
-  duration: Number,
+  subTitle: String,
   pictureUrl: String,
-  artist: String,
   musicalGenre: String,
-
   rounded: String,
 });
 
 </script>
 <template> 
-    <div  class="card w-44 h-64 bg-base-100 shadow-xl bg-costum">
+    <div  class="card w-48 h-64  shadow-xl bg-costum">
       <figure class="mt-1 relative">
         <img
           :src="pictureUrl"
           alt="Shoes"
-          class="h-36 w-36 m-5"
+          class="h-40 w-40 m-5"
           :class="rounded"
         />
         <button
@@ -28,8 +25,8 @@ defineProps({
         </button>
       </figure>
       <div class="card-body p-3">
-        <h6 class="card-title text-base font-bold text-white">{{ artist }}</h6>
-        <p>artista</p>
+        <h6 class="card-title text-base font-bold text-white">{{ title }}</h6>
+        <p>{{ subTitle }}</p>
         <div class="card-actions"></div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import CustomButton from "../CustomButton.vue";
 </script>
 
 <template>
-  <div class="navbar bg-base-100 h-16 z-50 rounded-t-md nav-custom fixed">
+  <div class=" bg-base-100 h-16 z-50 rounded-t-md nav-custom fixed nav-costum">
     <div >
       <button class="join-item btn">«</button>
       <button class="join-item btn">»</button>
@@ -15,5 +15,17 @@ import CustomButton from "../CustomButton.vue";
   </div>
 </template>
 <style scoped >
+
+.nav-costum{
+    display: flex;
+    min-width: 75%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px 0 10px;
+    border-radius: 20px 0;
+    
+    
+
+}
 
 </style>

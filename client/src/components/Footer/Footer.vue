@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-<footer class="footer p-10 bg-base-200 text-base-content">
+<footer class="footer p-10 bg-base-100 text-base-content">
   <nav>
     <h6 class="footer-title">Services</h6> 
     <a class="link link-hover">Branding</a>

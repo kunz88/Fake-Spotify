@@ -12,4 +12,10 @@ import PlaylistComponent from "../PlaylistComponent/PlaylistComponent.vue";
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.sidebar{
+  min-width: 25%;
+
+}
+
+</style>

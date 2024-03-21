@@ -3,30 +3,37 @@ import useFetch from "../../utils/fetch";
 import Card from "../Card/Card.vue";
 import CardListSection from "../CardListSection/CardListSection.vue";
 
-const { isFetching, data, /* status, */ error } = useFetch(
-  "http://localhost:3000/artists"
-);
-
+const arrResource = ["artists", "songs"];
+const [{ isFetching, data: dataArtist, error }, { data: dataSongs }] =
+  arrResource.map((resource) => useFetch(`http://localhost:3000/${resource}`));
 </script>
 
 <template>
-  
-  <p v-if="isFetching"><span class="loading loading-spinner text-primary"></span></p>
+  <p v-if="isFetching"><span class="loading loading-dots loading-lg"></span></p>
   <template v-if="!error">
     <section class="pt-10 rounded-box">
-      <CardListSection title="Artisti più popolari"
-        ><Card v-for="({ artist, pictureUrl}, index) in data" :key="index" :artist="artist" :picture-url="pictureUrl" rounded="rounded-full" />
-      
-      </CardListSection>
-      <CardListSection title="Artisti più popolari"
-        ><Card v-for="({ artist, pictureUrl }, index) in data" :key="index" :artist="artist" :picture-url="pictureUrl" rounded="rounded-full" />
-      
-      </CardListSection>
+
+        <CardListSection title="Artisti più popolari"
+          ><Card
+            v-for="({ artist, image }, index) in dataArtist"
+            :key="index"
+            :title="artist"
+            :picture-url="image"
+            subTitle="Artista"
+            rounded="rounded-full"
+          />
+        </CardListSection>
       <CardListSection title="Album più popolari"
-        ><Card v-for="({  pictureUrl }, index) in data" :key="index" :picture-url="pictureUrl" rounded="rounded-full" />
-      
+        ><Card
+          v-for="({ title, pictureUrl, musicalGenre }, index) in dataSongs"
+          :key="index"
+          :title="title"
+          :picture-url="pictureUrl"
+          :subTitle="musicalGenre"
+          rounded="rounded"
+        />
       </CardListSection>
-        
+
       <!--   <CardListSection title="Album più popolari"
     ><Card rounded="rounded" /><Card rounded="rounded" /><Card
       rounded="rounded" /><Card rounded="rounded" /><Card rounded="rounded"
@@ -47,4 +54,3 @@ const { isFetching, data, /* status, */ error } = useFetch(
   </template>
 </template>
 
-<style scoped></style>

@@ -6,7 +6,7 @@
 
 <template>
     
-  <section class="section-component p-7">
+  <section class="section-component p-10">
     <h1 class="section-title font-bold text-white">{{ title }}</h1>
     
     <section class="cards-container"><slot /></section>
@@ -18,6 +18,7 @@
   @import '../../scss/includes.scss';
 
   .section-component {
+    margin-top: 7px;
     &:not(:first-child) {
       margin-top: 10px;
       margin-bottom: 10px;
