@@ -34,13 +34,6 @@ const [{ isFetching, data: dataArtist, error }, { data: dataSongs }] =
         />
       </CardListSection>
 
-      <!--   <CardListSection title="Album più popolari"
-    ><Card rounded="rounded" /><Card rounded="rounded" /><Card
-      rounded="rounded" /><Card rounded="rounded" /><Card rounded="rounded"
-  /></CardListSection>
-  <CardListSection title="Stazioni radio più popolari"
-    ><Card /><Card /><Card /><Card /><Card
-  /></CardListSection>
   <CardListSection title="Classifiche in primo piano"
     ><Card /><Card /><Card /><Card /><Card
   /></CardListSection>
@@ -49,7 +42,7 @@ const [{ isFetching, data: dataArtist, error }, { data: dataSongs }] =
   /></CardListSection>
   <CardListSection title="Episodi di tendenza"
     ><Card /><Card /><Card /><Card
-  /></CardListSection> -->
+  /></CardListSection>
     </section>
   </template>
 </template>

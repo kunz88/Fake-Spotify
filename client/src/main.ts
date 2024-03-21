@@ -1,15 +1,31 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import { createMemoryHistory, createRouter} from 'vue-router'
+
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 // Importa le icone che desideri utilizzare
 import {  faPlay} from '@fortawesome/free-solid-svg-icons';
 
+import Home from './views/Home.vue';
+import SignIn from './views/SignIn.vue';
+
 library.add(faPlay);
 
-const app = createApp(App)
+const routes = [
+    {path:'/', component: Home},
+    {path:'/signin', component: SignIn}
+]
+
+const router = createRouter({
+    history:createMemoryHistory(),
+    routes
+
+})
+
+const app = createApp(App).use(router)
 
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')

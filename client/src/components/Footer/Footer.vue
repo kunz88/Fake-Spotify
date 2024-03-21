@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import FooterBottom from "./FooterBottom.vue"
+
+</script>
+
 <template>
 <footer class="footer p-10 bg-base-100 text-base-content">
   <nav>
@@ -34,9 +38,5 @@
     </fieldset>
   </form>
 </footer>
-<footer class="footer footer-center p-4 bg-base-300 text-base-content">
-  <aside>
-    <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
-  </aside>
-</footer>
+<FooterBottom/>
 </template>

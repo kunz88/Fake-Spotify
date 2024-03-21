@@ -9,7 +9,8 @@ import CustomButton from "../CustomButton.vue";
       <button class="join-item btn">»</button>
     </div>
     <ul class="menu menu-horizontal justify-end">
-        <li><CustomButton name="Iscriviti" color="btn-link" /></li>
+      <RouterLink to="/signin"><li><CustomButton name="Iscriviti" color="btn-link" /></li></RouterLink>
+        
         <li><CustomButton name="Accedi" color="btn-ghost" /></li>
       </ul>
   </div>

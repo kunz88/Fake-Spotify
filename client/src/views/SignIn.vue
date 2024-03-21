@@ -1,13 +1,15 @@
 <script setup lang="ts">
+import FormSignIn from "../components/FormSignIn/FormSignIn.vue"
+
 </script>
 
 <template>
 
-<RouterView/>
+<FormSignIn/>
 
 
 </template>
 
 <style scoped lang="scss">
-@import "./scss/includes.scss";
+
 </style>
