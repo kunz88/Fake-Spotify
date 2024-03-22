@@ -1,5 +1,22 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import FooterBottom from "./FooterBottom.vue"
+import agent from "../../utils/agent";
+
+const uuidUser = ref<string>("")
+/* type UserTypeKeys = keyof typeof user; */
+
+const validationMail = () => {
+
+    try {
+      agent.SignIn.mailvalidation(uuidUser.value)
+      console.log(uuidUser.value)
+      
+    } catch (error) {
+      console.log(error)
+    }
+    
+}
 
 </script>
 
@@ -25,15 +42,15 @@ import FooterBottom from "./FooterBottom.vue"
     <a class="link link-hover">Privacy policy</a>
     <a class="link link-hover">Cookie policy</a>
   </nav> 
-  <form>
-    <h6 class="footer-title">Newsletter</h6> 
+  <form @submit.prevent="() => {console.log('validated')}">
+    <h6 class="footer-title">Valida mail</h6> 
     <fieldset class="form-control w-80">
       <label class="label">
-        <span class="label-text">Enter your email address</span>
+        <span class="label-text">Enter your uuid</span>
       </label> 
       <div class="join">
-        <input type="text" placeholder="username@site.com" class="input input-bordered join-item" /> 
-        <button class="btn btn-primary join-item">Subscribe</button>
+        <input type="text" placeholder="uuid" v-model="uuidUser" class="input input-bordered join-item" /> 
+        <button class="btn btn-primary join-item " @click="()=>validationMail()">valida</button>
       </div>
     </fieldset>
   </form>

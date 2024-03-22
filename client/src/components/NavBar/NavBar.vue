@@ -3,7 +3,7 @@ import CustomButton from "../CustomButton.vue";
 </script>
 
 <template>
-  <div class="bg-base-100 h-16 z-50 rounded-t-md nav-custom fixed nav-costum">
+  <div class="bg-base-100 h-16 z-50 rounded-t-md nav-custom sticky top-0 right-0 nav-costum">
     <nav>
       <button class="join-item btn">«</button>
       <button class="join-item btn">»</button>
@@ -21,7 +21,9 @@ import CustomButton from "../CustomButton.vue";
     </nav>
   </div>
 </template>
-<style scoped>
+<style scoped lang="scss">
+@import "../../scss/includes.scss";
+
 .nav-costum {
   display: flex;
   min-width: 75%;
@@ -29,5 +31,7 @@ import CustomButton from "../CustomButton.vue";
   align-items: center;
   padding: 0 10px 0 10px;
   border-radius: 20px 0;
+  backdrop-filter: blur(rem(2));
+  background: 333,0.4;
 }
 </style>

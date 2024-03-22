@@ -4,14 +4,14 @@ import Card from "../Card/Card.vue";
 import CardListSection from "../CardListSection/CardListSection.vue";
 
 const arrResource = ["artists", "songs"];
-const [{ isFetching, data: dataArtist, error }, { data: dataSongs }] =
+const [{ isFetching, data: dataArtist }, { data: dataSongs }] =
   arrResource.map((resource) => useFetch(`http://localhost:3000/${resource}`));
 </script>
 
 <template>
-  <p v-if="isFetching"><span class="loading loading-dots loading-lg"></span></p>
-  <template v-if="!error">
-    <section class="pt-10 rounded-box">
+  <div v-if="isFetching" class="h-screen min-w-full loading-lg h-screen min-w-full flex justify-center"><span class="loading loading-dots w-10"></span></div>
+  <template v-if="!isFetching">
+    <section class="rounded-box">
 
         <CardListSection title="Artisti più popolari"
           ><Card
@@ -21,6 +21,7 @@ const [{ isFetching, data: dataArtist, error }, { data: dataSongs }] =
             :picture-url="image"
             subTitle="Artista"
             rounded="rounded-full"
+            
           />
         </CardListSection>
       <CardListSection title="Album più popolari"

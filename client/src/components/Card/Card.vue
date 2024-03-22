@@ -4,22 +4,23 @@ defineProps({
   title: String,
   subTitle: String,
   pictureUrl: String,
-  musicalGenre: String,
   rounded: String,
 });
 
 </script>
 <template> 
+<RouterLink :to="`/${title}`">
     <div  class="card w-48 h-64  shadow-xl bg-costum">
-      <figure class="mt-1 relative">
+      
+      <figure class="mt-1 relative ">
         <img
           :src="pictureUrl"
           alt="Shoes"
-          class="h-40 w-40 m-5"
+          class="h-40 w-40 m-5 "
           :class="rounded"
         />
         <button
-          class="btn btn-primary join-item absolute bottom-0 right-7 btn-player"
+          class="btn btn-primary join-item absolute bottom-0 right-7 btn-player -z-50"
         >
           <font-awesome-icon :icon="['fas', 'play']" size="lg" />
         </button>
@@ -29,17 +30,25 @@ defineProps({
         <p>{{ subTitle }}</p>
         <div class="card-actions"></div>
       </div>
+
     </div>
+  </RouterLink>
 </template>
 
 <style scoped lang="scss">
+@import "../../scss/includes.scss";
 .bg-costum {
   background-color: #181818;
   border-radius: 8px;
-  transition: 0.3s all ease-in-out;
+  transition: $transition;
 }
+
 :hover.bg-costum {
   background-color: #333;
-  z-index: 0;
+  .btn{
+    z-index: 0;
+    transition: $transition;
+  }
 }
+
 </style>

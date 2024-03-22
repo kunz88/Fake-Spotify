@@ -2,13 +2,9 @@
 import { reactive } from "vue";
 import CustomButton from "../../CustomButton.vue";
 import FormSection from "../FormSection.vue"
+import agent from "../../../utils/agent.ts"
+import {UserKey, UserType} from "../model/user"
 
-type UserType = {
-  name: string;
-  email: string;
-  avatar?: string;
-  password: string;
-};
 
 //IL REACTIVE E' CONSIGLIATO QUANDO SI UTLIZZA UN OGGETTO E CREA UN REF PER OGNI CHIAVE DELL'OGGETTO (DA USARE CON PRUDENZA)
 const user: UserType = reactive({
@@ -18,17 +14,18 @@ const user: UserType = reactive({
   password: "",
 });
 
-defineProps({
-  handleSubmit :() =>{},
-  title:String
-})
-/* type UserTypeKeys = keyof typeof user; */
+
 
 const handleSubmit = () => {
   //UTILIZZARE IL VERBO MODIFICATORE "prevent" PERMETTE DI NON UTLIZZARE LA SINTASSI CLASSICA DEL "preventDefault()"
-
+  try{
+    agent.SignIn.signin(user)
+    console.log(user)
+  }catch(e){
+    console.log(e);
+  }
   //RIINIZIALIZZA TUTTI I VALORI DI "card" ED E' IL CORRISPETTIVO DEL CODICE PRECEDENTE
-/*   Object.keys(user).forEach((inputName: string) => (user[inputName] = "")); */
+Object.keys(user).forEach((inputName: string) => (user[inputName as UserKey] = "")); 
 };
 </script>
 
@@ -45,7 +42,7 @@ const handleSubmit = () => {
       <input
         type="text"
         class="grow"
-        placeholder="Daisy"
+        placeholder="Kunz"
         required
         v-model="user.name"
       />
@@ -55,7 +52,7 @@ const handleSubmit = () => {
       <input
         type="text"
         class="grow"
-        placeholder="daisy@site.com"
+        placeholder="kunz@site.com"
         required
         v-model="user.email"
       />
