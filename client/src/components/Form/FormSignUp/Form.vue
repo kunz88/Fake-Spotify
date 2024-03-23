@@ -89,6 +89,11 @@ Object.keys(user).forEach((inputName: string) => (user[inputName as UserKey] = "
           required
         />
       </label>
+      <div class="flex p-5 items-center"> <p>Non hai un account?</p><RouterLink to="/signin" 
+          ><CustomButton name="Iscriviti" color="btn-link"/>
+        </RouterLink></div>
+
+
 
       <CustomButton
         type="submit"
@@ -98,6 +103,7 @@ Object.keys(user).forEach((inputName: string) => (user[inputName as UserKey] = "
       />
     </form>
   </FormSection>
+  
 </template>
 
 <style scoped lang="scss">

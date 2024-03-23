@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import { createRouter, createWebHistory} from 'vue-router'
+import {store} from './store'
 
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -32,6 +33,11 @@ const router = createRouter({
 })
 
 
+// guard per il reindirizzamento della pagina in caso non si sia loggati
+router.beforeEach((to, from, next) => {
+    if ((to.name !== 'signin') && (to.name !== 'signup') && (to.name !== 'home') && !store.logged.isLogged) next({ name: 'signup' })
+    else next()
+  })
 const app = createApp(App).use(router)
 
 

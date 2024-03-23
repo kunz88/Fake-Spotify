@@ -2,14 +2,18 @@
 import CustomButton from "../CustomButton.vue";
 import {store} from "../../store"
 
+
+
+// funzione di logout cancella il token dallo storage
 const logout = () => { 
   localStorage.setItem("token","")
   location.reload();
 
 }
-
-
+// funzione che avvia la chiamata al server
 store.logged.checkToken()
+
+
 </script>
 
 <template>
@@ -24,7 +28,7 @@ store.logged.checkToken()
       <p class="text-neutral-400 text-lg font-bold">{{store.getUser.user}}</p>
       <div class="w-14 rounded-full">
         <img
-          src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+          src="https://quifinanza.it/wp-content/uploads/sites/5/2024/02/Quanto-costano-i-funerali-di-Carlo-III.jpg"
         />
       </div>
       <a class="btn btn-ghost" @click="logout">Logout</a>
