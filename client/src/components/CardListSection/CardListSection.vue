@@ -6,7 +6,7 @@
 
 <template>
     
-  <section class="section-component p-4">
+  <section class="section-component p-4">  
     <h1 class="section-title font-bold text-white">{{ title }}</h1>
     
     <section class="cards-container"><slot /></section>

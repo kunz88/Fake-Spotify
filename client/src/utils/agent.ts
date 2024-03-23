@@ -51,6 +51,7 @@ const SignUp = {
     signup:(body:object) => request.post('auth/login',body),
 
 }
+
  
 // oggetto che contiene Catalog
 

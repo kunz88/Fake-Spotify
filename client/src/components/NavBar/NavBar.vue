@@ -1,15 +1,37 @@
 <script setup lang="ts">
 import CustomButton from "../CustomButton.vue";
+import {store} from "../../store"
+
+const logout = () => { 
+  localStorage.setItem("token","")
+  location.reload();
+
+}
+
+
+store.logged.checkToken()
 </script>
 
 <template>
-  <div class="bg-base-100 h-16 z-50 rounded-t-md nav-custom sticky top-0 right-0 nav-costum">
+  <div
+    class="bg-base-100 h-16 z-50 nav-custom sticky top-0 right-0 nav-costum"
+  >
     <nav>
       <button class="join-item btn">«</button>
       <button class="join-item btn">»</button>
     </nav>
-    <nav>
-      <ul class="menu menu-horizontal justify-end">
+    <div v-if="store.logged.isLogged" class="avatar flex items-center gap-3">
+      <p class="text-neutral-400 text-lg font-bold">{{store.getUser.user}}</p>
+      <div class="w-14 rounded-full">
+        <img
+          src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+        />
+      </div>
+      <a class="btn btn-ghost" @click="logout">Logout</a>
+    </div>
+    <nav v-else>
+
+      <ul  class="menu menu-horizontal justify-end">
         <RouterLink to="/signin"
           ><li><CustomButton name="Iscriviti" color="btn-link" /></li
         ></RouterLink>
@@ -30,8 +52,7 @@ import CustomButton from "../CustomButton.vue";
   justify-content: space-between;
   align-items: center;
   padding: 0 10px 0 10px;
-  border-radius: 20px 0;
   backdrop-filter: blur(rem(2));
-  background: 333,0.4;
+  background: 333, 0.4;
 }
 </style>

@@ -2,6 +2,7 @@
 import useFetch from "../../utils/fetch";
 import Card from "../Card/Card.vue";
 import CardListSection from "../CardListSection/CardListSection.vue";
+import FakeListComponent from "../FakeListComponent/FakeListComponent.vue"
 
 const arrResource = ["artists", "songs"];
 const [{ isFetching, data: dataArtist }, { data: dataSongs }] =
@@ -35,15 +36,7 @@ const [{ isFetching, data: dataArtist }, { data: dataSongs }] =
         />
       </CardListSection>
 
-  <CardListSection title="Classifiche in primo piano"
-    ><Card /><Card /><Card /><Card /><Card
-  /></CardListSection>
-  <CardListSection title="Zzzzzzz"
-    ><Card /><Card /><Card /><Card /><Card
-  /></CardListSection>
-  <CardListSection title="Episodi di tendenza"
-    ><Card /><Card /><Card /><Card
-  /></CardListSection>
+      <FakeListComponent/>
     </section>
   </template>
 </template>

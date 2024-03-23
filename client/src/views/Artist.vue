@@ -10,9 +10,12 @@ import ArtistDetails from "../components/ArtistDetails/ArtistDetails.vue"
 
 
 
+
+
 </script>
 
 <template>
+  
   <PageComponent>
   <section>
     <SideBarMenu class="w-3/12 p-2"/>
@@ -20,9 +23,9 @@ import ArtistDetails from "../components/ArtistDetails/ArtistDetails.vue"
 
   <SideListSection>
     <NavBar />
-    <Suspense>
+
       <ArtistDetails />
-    </Suspense>
+
 
     <Footer />
   </SideListSection>

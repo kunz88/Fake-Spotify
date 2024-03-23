@@ -1,38 +1,37 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import agent from '../../utils/agent';
-
-
-
-export type Artist = {
-    title: string;
-    text: string;
-    duration: number;
-    pictureUrl: string;
-    musicalGenre: string;
-    artist: string;
-    otherSongs:string[];
-};
+import ArtistCompontent from "./ArtistCompontent.vue";
+import { useRoute } from "vue-router";
+import useFetch from "../../utils/fetch";
+import FakeListComponent from "../FakeListComponent/FakeListComponent.vue";
 
 const {
-  params: { name }
+  params: { name },
 } = useRoute();
 
-try {
-  const artistObj:Artist = await agent.Artists.details(name.toString())
-  const {artist,pictureUrl,musicalGenre,otherSongs} = artistObj
-  console.log(artistObj)
-} catch (error) {
-  console.log(error)
-}
+const { isFetching, data } = useFetch(`http://localhost:3000/artists/${name}`);
 
 
 </script>
 
 <template>
-<h1>Details</h1>
+  <div
+    v-if="isFetching"
+    class="h-screen min-w-full loading-lg h-screen min-w-full flex justify-center"
+  >
+    <span class="loading loading-dots w-10"></span>
+  </div>
+  <template v-if="!isFetching">
+    <ArtistCompontent
+    v-for="({ artist, pictureUrl,musicalGenre,otherSongs }, index) in data"
+    :key="index"
+      :pictureUrl="pictureUrl"
+      :artist="artist"
+      :musical-genre="musicalGenre"
+      :other-songs="otherSongs"
+    />
+  </template>
+
+  <section class="rounded-box">
+    <FakeListComponent/>
+  </section>
 </template>
-
-<style scoped lang="scss">
-
-</style>
