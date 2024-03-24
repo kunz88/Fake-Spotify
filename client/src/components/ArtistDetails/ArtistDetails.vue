@@ -24,7 +24,7 @@ const { isFetching, data } = useFetch(`http://localhost:3000/artists/${name}`);
     <ArtistCompontent
     v-for="({ artist, pictureUrl,musicalGenre,otherSongs }, index) in data"
     :key="index"
-      :pictureUrl="pictureUrl"
+      :picture-url="pictureUrl"
       :artist="artist"
       :musical-genre="musicalGenre"
       :other-songs="otherSongs"

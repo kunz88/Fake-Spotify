@@ -1,5 +1,8 @@
 <script setup lang="ts">
 
+
+import {store} from "../../store"
+
 defineProps({
   title: String,
   text: String,
@@ -9,6 +12,29 @@ defineProps({
   artist: String,
   otherSongs: Array,
 });
+
+
+
+
+
+
+// fuznione utilizzata per aggiungere una canzone nella lista dei preferiti
+const addFavourite = (item:string) => {
+
+  // se la canzone è gia presente nella lista viene rimossa
+  if(store.listFavourites.includes(item)){ // store.listfavourites è la lista presente all'interno dello store
+    const indexItem = store.listFavourites.indexOf(item)
+    store.listFavourites.splice(indexItem,1)
+
+  }
+  // altrimenti viene aggiunta
+  else{
+    store.listFavourites.push(item)
+  }
+}
+
+
+
 </script>
 
 <template>
@@ -53,26 +79,40 @@ defineProps({
   </div>
   <h2 class="text-2xl font-bold text-white p-4 mb-3">Popolari</h2>
   <div class="overflow-x-auto">
-  <table class="table mb-3">
-    <!-- head -->
-    <thead>
-      <tr>
-        <th></th>
-        <th>Titolo</th>
-        <th>views</th>
-        <th>Durata</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- row 1 -->
-      <tr v-for="(song,index) in otherSongs" :key="index" class="hover:bg-slate-500">
-        <th>{{ index + 1 }}</th>
-        <td>{{ song }}</td>
-        <td>{{ (index + 1) * Math.floor(Math.random() * 1000000)}}</td>
-        <td>{{ ((index + 1) * (Math.floor(Math.random() * 100 + 100))) / 100}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
+    <table class="table mb-3">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th></th>
+          <th>Titolo</th>
+          <th>views</th>
+          <th>Durata</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- row 1 -->
+        <tr
+          v-for="(song, index) in otherSongs"
+          :key="index"
+          class="hover:bg-slate-500"
+          @click="() => addFavourite(song as string)"
+        >
+          <th>{{ index + 1 }}</th>
+          <td>{{ song }}</td>
+          <td>{{ (index + 1) * Math.floor(Math.random() * 1000000) }}</td>
+          <td>
+            {{ ((index + 1) * Math.floor(Math.random() * 100 + 100)) / 100 }}
+          </td>
+          <td>
+            <a 
+              ><font-awesome-icon
+                :icon="
+                ['fas', 'heart']
+                "
+            /></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>

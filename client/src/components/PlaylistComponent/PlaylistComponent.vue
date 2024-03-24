@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { store } from '../../store';
+
+</script>
+
+
 <template>
     <div class="overflow-x-auto h-96 rounded-box mt-2">
       <table class="table table-pin-rows">
@@ -25,36 +31,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Ant-Man</td>
+          <tr v-for="item in store.listFavourites">
+            <td>{{ item }}</td>
           </tr>
-          <tr>
-            <td>Aquaman</td>
-          </tr>
-          <tr>
-            <td>Asterix</td>
-          </tr>
-          <tr>
-            <td>The Atom</td>
-          </tr>
-          <tr>
-            <td>The Avengers</td>
-          </tr>
-          <tr>
-            <td>Ant-Man</td>
-          </tr>
-          <tr>
-            <td>Aquaman</td>
-          </tr>
-          <tr>
-            <td>Asterix</td>
-          </tr>
-          <tr>
-            <td>The Atom</td>
-          </tr>
-          <tr>
-            <td>The Avengers</td>
-          </tr>
+
         </tbody>
       </table>
     </div>
