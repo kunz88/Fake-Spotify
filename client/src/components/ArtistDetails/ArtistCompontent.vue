@@ -18,7 +18,7 @@ defineProps({
 
 
 
-// fuznione utilizzata per aggiungere una canzone nella lista dei preferiti
+// funznione utilizzata per aggiungere o rimuovere una canzone nella lista dei preferiti
 const addFavourite = (item:string) => {
 
   // se la canzone è gia presente nella lista viene rimossa

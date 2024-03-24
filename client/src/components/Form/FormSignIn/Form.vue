@@ -4,7 +4,9 @@ import CustomButton from "../../CustomButton.vue";
 import FormSection from "../FormSection.vue"
 import agent from "../../../utils/agent.ts"
 import {UserKey, UserType} from "../model/user"
+import { useRouter } from "vue-router";
 
+const router = useRouter()
 
 //IL REACTIVE E' CONSIGLIATO QUANDO SI UTLIZZA UN OGGETTO E CREA UN REF PER OGNI CHIAVE DELL'OGGETTO (DA USARE CON PRUDENZA)
 const user: UserType = reactive({
@@ -21,6 +23,7 @@ const handleSubmit = () => {
   try{
     agent.SignIn.signin(user)
     console.log(user)
+    router.push("signup")
   }catch(e){
     console.log(e);
   }

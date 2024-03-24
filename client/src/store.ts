@@ -6,7 +6,7 @@ import { computed, reactive, ref } from "vue";
 //STORE "logged" RICHIAMABILE OVUNQUE
 export const logged = reactive({
   //STATE
-  isLogged: false, // constrolla se l'utente è loggato
+  isLogged: false, // controlla se l'utente è loggato
   token: "", // inizializzo il token a stringa vuota
   user: { user: String }, // inizializazione dell'utente
 
